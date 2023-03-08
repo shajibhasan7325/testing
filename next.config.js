@@ -31,7 +31,7 @@
 
 module.exports = {
   images: {
-    domains: ['www.glamcode.in'],
+    domains: ["www.glamcode.in"],
     deviceSizes: [600, 640, 750, 828, 1080, 1200, 1920],
   },
 };

@@ -10,6 +10,7 @@ import Header from "../components/Header";
 import PreferredPackages from "../components/PreferredPackages";
 import ReferAndEarn from "../components/ReferAndEarn";
 import CustomerTestimonials from "../components/CustomerTestimonials";
+import OtpModal from "../components/Modal/OtpModal";
 
 const Home = ({ operations, incidents, maincat }) => {
   console.log(maincat, "hello");
@@ -98,7 +99,7 @@ const Home = ({ operations, incidents, maincat }) => {
           ></meta>
         </Head>
 
-        {/* <Header /> */}
+        <Header />
 
         <Slider data={incidents} />
 
@@ -128,7 +129,7 @@ const Home = ({ operations, incidents, maincat }) => {
           </>
         )}
 
-        {/* {localStorage.getItem("devise") === "D" ? (
+        {localStorage.getItem("devise") === "D" ? (
           <Maincategory />
         ) : (
           <>
@@ -136,7 +137,7 @@ const Home = ({ operations, incidents, maincat }) => {
             <hr className="hr-white"></hr>
             <Maincategorymobile />
           </>
-        )} */}
+        )}
 
         {localStorage.getItem("devise") === "D" ? (
           <div className="col-12 " style={{ marginTop: "50px" }}>
@@ -152,9 +153,9 @@ const Home = ({ operations, incidents, maincat }) => {
         ) : (
           ""
         )}
-        {/* <ReferAndEarn />
+        <ReferAndEarn />
         <PreferredPackages />
-        <CustomerTestimonials /> */}
+        <CustomerTestimonials />
         {localStorage.getItem("devise") === "D" ? (
           <div className="testimonial ">
             {offerBanner.map((banner) => (
@@ -175,7 +176,7 @@ const Home = ({ operations, incidents, maincat }) => {
           </div>
         )}
 
-        {/* <Faqs /> */}
+        <Faqs />
         {localStorage.getItem("devise") === "D" ? (
           <div className="col-12 " style={{ marginTop: "50px" }}>
             <hr
@@ -191,16 +192,16 @@ const Home = ({ operations, incidents, maincat }) => {
           ""
         )}
 
-        {/* {localStorage.getItem("devise") === "D" ? <Serving /> : ""} */}
+        {localStorage.getItem("devise") === "D" ? <Serving /> : ""}
 
-        {/* <Knowmore /> */}
+        <Knowmore />
       </Fragment>
     </div>
   );
 };
 export default Home;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const [operationsRes, incidentsRes] = await Promise.all([
     fetch(`https://admin.glamcode.in/api/offers-banners`),
     fetch(`https://admin.glamcode.in/api/allslider`),
